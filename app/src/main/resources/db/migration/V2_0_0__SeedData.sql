@@ -3,6 +3,12 @@ INSERT INTO customer (id, created_date, deleted, email, first_name, last_name, m
 	(2, '2020-05-05 15:01:29', b'0', 'amit.goyal@gmail.com', 'Amit', 'Goyal', '2020-05-05 15:01:53', NULL, 'guid-002');
 INSERT INTO customer_extra_attributes (id, cf_code, cf_value_string, customer_id) VALUES
 	(1, 'secondary_email', 'jagbir_paul@yahoo.com', 1);
+INSERT INTO customer_extra_attributes (id, cf_code, cf_value_string, customer_id) VALUES
+	(2, 'company_name', 'Mindnerves', 1);
+INSERT INTO customer_extra_attributes (id, cf_code, cf_value_string, customer_id) VALUES
+	(3, 'secondary_email', 'amit.goyal@yahoo.com', 2);
+INSERT INTO customer_extra_attributes (id, cf_code, cf_value_string, customer_id) VALUES
+	(4, 'company_name', 'Vodaphone', 2);			
 INSERT INTO customer_tags (id, tags, customer_id) VALUES
 	(1, 'Vip', 1),
 	(2, 'Management', 1),

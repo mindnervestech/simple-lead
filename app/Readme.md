@@ -46,6 +46,26 @@ Endpoint to get __Customer Sorted by firstname and pagination __
 
 http://localhost:8080/customers?sortBy=firstName&pageNo=0&pageSize=10
 
+```
+[
+  {
+    "firstName": "Amit",
+    "lastName": "Goyal",
+    "company_name": "Vodaphone",
+    "secondary_email": "amit.goyal@yahoo.com",
+    "email": "amit.goyal@gmail.com"
+  },
+  {
+    "firstName": "Jagbir",
+    "lastName": "Singh",
+    "company_name": "Mindnerves",
+    "secondary_email": "jagbir_paul@yahoo.com",
+    "email": "jagbir.paul@gmail.com"
+  }
+]
+```
+Please note company_name and secondary_email are extra custom attributes.
+
 __Example of pagination with pageSize one__
 http://localhost:8080/customers?sortBy=firstName&pageNo=0&pageSize=1
 http://localhost:8080/customers?sortBy=firstName&pageNo=1&pageSize=1
