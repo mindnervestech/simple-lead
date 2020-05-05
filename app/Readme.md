@@ -69,3 +69,16 @@ Please note company_name and secondary_email are extra custom attributes.
 __Example of pagination with pageSize one__
 http://localhost:8080/customers?sortBy=firstName&pageNo=0&pageSize=1
 http://localhost:8080/customers?sortBy=firstName&pageNo=1&pageSize=1
+
+###Do mvn install first 
+
+### With Docker
+docker build -t simplelead .
+docker run -p 8080:8080 -t simplelead:latest
+
+### With Docker Compose 
+docker-compose up
+ 
+### without docker
+ 
+java -jar target/<name of jar file>.jar
