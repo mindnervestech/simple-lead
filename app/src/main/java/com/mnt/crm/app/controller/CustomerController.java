@@ -4,6 +4,7 @@ import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -24,14 +25,14 @@ public class CustomerController {
 	private CustomerService customerService;
 	
 	@GetMapping(value="/customers")
-	public ResponseEntity<List<Customer>> getAllCustomer(
+	public ResponseEntity<List<Map<String,String>>> getAllCustomer(
 			 @RequestParam(defaultValue = "0") Integer pageNo, 
              @RequestParam(defaultValue = "10") Integer pageSize,
              @RequestParam(defaultValue = "firstName") String sortBy) {
 		
 		List<Customer> list = customerService.getAllCustomer(pageNo, pageSize, sortBy);
-		 
-        return new ResponseEntity<List<Customer>>(list, new HttpHeaders(), HttpStatus.OK); 
+		List<Map<String,String>> ret = list.stream().map( w -> w.toMap()).collect(Collectors.toList());
+        return new ResponseEntity<List<Map<String,String>>>(ret, new HttpHeaders(), HttpStatus.OK); 
 		
 	}
 	
