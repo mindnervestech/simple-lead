@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 
 @Table(name="customer_tags")
@@ -19,12 +21,12 @@ public class CustomerTags {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-	
-	
+		
 	@Column(name="tags", length=50)
 	private String value;
 	
 	@ManyToOne
 	@JoinColumn(name = "customer_id")
+	@JsonIgnore
 	private Customer customer;
 }
