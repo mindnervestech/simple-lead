@@ -1,0 +1,2 @@
+alter table customer_extra_attributes add constraint FK73brqgntgxyiwbtk1otwot0ok foreign key (customer_id) references customer
+alter table customer_tags add constraint FKnue32a12syx331qn92jvt2715 foreign key (customer_id) references customer
