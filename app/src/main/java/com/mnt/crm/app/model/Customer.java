@@ -1,7 +1,9 @@
 package com.mnt.crm.app.model;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -56,5 +58,16 @@ public class Customer {
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
 	private List<CustomerTags> customerTags;
+	
+	public Map<String, String> toMap() {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("firstName", this.firstName);
+		map.put("lastName", this.lastName);
+		map.put("email", this.email);
+		this.customerExtraAttributes.stream().forEach(w -> {
+			map.put(w.getCode(), w.getValue());
+		});
+		return map;
+	}
 
 }
