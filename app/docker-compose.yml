@@ -1,0 +1,8 @@
+web:
+    image: java:openjdk-8-jdk
+    working_dir: /app
+    volumes:
+        - ./target:/app
+    ports:
+        - "8080:8080"
+    command: java -jar /app/app-0.0.1-SNAPSHOT.jar
