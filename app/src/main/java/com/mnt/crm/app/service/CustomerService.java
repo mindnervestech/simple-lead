@@ -59,7 +59,7 @@ public class CustomerService {
 			for(SalesAgeing w : listOfAging) {
 				totalTimeDiff += (w.getSecondCreatedDate().getTime() - w.getFirstCreatedDate().getTime());
 			};
-			return totalTimeDiff/listOfAging.size();
+			return  ((float)(totalTimeDiff/listOfAging.size()))/(3600000*24);
 		}
 		return 0;
 	}

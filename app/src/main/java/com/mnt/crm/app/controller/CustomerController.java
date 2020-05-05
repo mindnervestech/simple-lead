@@ -1,5 +1,6 @@
 package com.mnt.crm.app.controller;
 
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -44,14 +45,14 @@ public class CustomerController {
 	}
 	
 	@GetMapping(value="/customers/sales/ageing")
-	public ResponseEntity<Map<String,Float>> salesAgeging() {
+	public ResponseEntity<Map<String,String>> salesAgeging() {
 		
-		Map<String,Float> ret = new HashMap<String,Float>();
+		Map<String,String> ret = new HashMap<String,String>();
+		DecimalFormat value = new DecimalFormat("#.#");
+		ret.put("Average days Ageing of Prospect", value.format(customerService.calculateProspectSalesAgeing()));
+		ret.put("Average days Ageing of Lead", value.format(customerService.calculateLeadSalesAgeing()));
 		
-		ret.put("Average Ageing of Prospect", customerService.calculateProspectSalesAgeing());
-		ret.put("Average Ageing of Lead", customerService.calculateLeadSalesAgeing());
-		
-		return new ResponseEntity<Map<String,Float>>(ret, new HttpHeaders(), HttpStatus.OK);
+		return new ResponseEntity<Map<String,String>>(ret, new HttpHeaders(), HttpStatus.OK);
 	}
 
 }
